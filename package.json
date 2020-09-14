@@ -1,0 +1,37 @@
+{
+  "name": "togglee",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "contributors": [
+    "Kanekotic <alvarojosepl@gmail.com>"
+  ],
+  "repository": "git@github.com:tarantx/togglee.git",
+  "license": "MIT",
+  "keywords": [
+    "serverless",
+    "flags",
+    "toggles"
+  ],
+  "scripts": {
+    "prepare": "npm run build && npm run build:cdn",
+    "build": "tsc",
+    "build:cdn": "npm run build && rollup -c",
+    "format": "prettier --write \"**/*.ts\" && tslint -p tsconfig.json --fix lib/**/*.ts -t verbose",
+    "lint": "tslint -p tsconfig.json",
+    "test": "npm run format && npm run lint && jest test",
+    "test:dev": "jest --watchAll test",
+    "test:cov": "npm run format && npm run lint && jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "push": "npm run test && git push",
+    "deploy:major": "npm run version --major",
+    "deploy:minor": "npm run version --minor",
+    "deploy:patch": "npm run version --patch",
+    "deploy:push": "git push && git push --tags",
+    "preversion": "npm run test"
+  },
+  "dependencies": {},
+  "jest": {
+    "preset": "ts-jest"
+  }
+}
