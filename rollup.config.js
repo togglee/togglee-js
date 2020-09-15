@@ -18,7 +18,6 @@ export default {
         builtins(),
         typescript({
             rollupCommonJSResolveHack: true,
-            objectHashIgnoreUnknownHack: true,
             tsconfigOverride: { compilerOptions: { module: "ESNext" } }
         }),
         terser(),
