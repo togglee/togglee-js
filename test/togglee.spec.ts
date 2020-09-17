@@ -12,19 +12,6 @@ describe('Toggle', () => {
     await simulado.stop()
   })
 
-  // it('should do stuff', async () => {
-  //   const expectedResult = {
-  //     prop1: 'awesome',
-  //   }
-  //   await simulado.setMock({
-  //     path: '/somepath',
-  //     body: expectedResult,
-  //   })
-
-  //   const response = await axios.get('http://localhost:7001/somepath')
-  //   console.log(response)
-  // })
-
   it('should use default value', async () => {
     const expectedResult = {
       "propTrue": {
@@ -60,14 +47,18 @@ describe('Toggle', () => {
   it('should refresh cache in rate', async () => {
     const sleeper = new Promise(resolve => setTimeout(resolve, 5000))
     const expectedResult = {
-      "propTrue": {
+      "toggles": [
+        {
+          "name": "propTrue",
           "type": "release",
           "value": true
-      },
-      "propFalse": {
+        },
+        {
+          "name": "propFalse",
           "type": "release",
           "value": false
-      }
+        }
+      ]
     }
 
     await simulado.setMock({
