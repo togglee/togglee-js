@@ -1,3 +1,3 @@
-const release = (toggle: any) => toggle['value']
-    
+const release = (toggle: any) => toggle.value
+
 export default release

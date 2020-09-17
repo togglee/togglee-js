@@ -1,7 +1,6 @@
 import axios from 'axios'
-import strategyMaps from "./strategies"
-import mapJsonToToggles from './helpers/mapper';
-
+import strategyMaps from './strategies'
+import mapJsonToToggles from './helpers/mapper'
 
 export class Togglee {
   private toggles?: any
@@ -27,9 +26,10 @@ export class Togglee {
   }
 
   private refreshCache = async () => {
-      try {
-        this.toggles = mapJsonToToggles((await axios.get(this.url)).data.toggles)
-      } catch (error) {
-      }
+    try {
+      this.toggles = mapJsonToToggles((await axios.get(this.url)).data.toggles)
+    } catch (error) {
+      // empty block
+    }
   }
 }

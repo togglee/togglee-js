@@ -1,5 +1,5 @@
 export type Toggle = {
-    name: string;
-  };
-  
-  export default Toggle;
+  name: string
+}
+
+export default Toggle
