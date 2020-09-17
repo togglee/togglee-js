@@ -43,7 +43,7 @@ describe('Toggle', () => {
   })
 
   it('should refresh cache in rate', async () => {
-    const sleeper = new Promise((resolve) => setTimeout(resolve, 5000))
+    const sleeper = new Promise((resolve) => setTimeout(resolve, 1000))
     const expectedResult = {
       toggles: [
         {
@@ -64,7 +64,7 @@ describe('Toggle', () => {
       body: expectedResult,
     })
 
-    const subject = new Togglee('http://localhost:7001/somepath', 1)
+    const subject = new Togglee('http://localhost:7001/somepath', 0.1)
 
     await sleeper
     expect(subject.isEnabled('propTrue')).toBeTruthy()
