@@ -4,8 +4,25 @@ const {Togglee} = pkg;
 const url = "https://gist.githubusercontent.com/kanekotic/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
 const refresh_rate_seconds = 5
 const default_values = {
-    "prop": false
-}
+    prop: {
+      type: 'release',
+      value: true,
+    },
+    prop2: {
+        "type": "release",
+        "value": true
+      },
+      prop3: {
+        "type": "context",
+        "conditions": [
+          {
+            "field": "username",
+            "value": "user1",
+            "operation": "eq"
+          }
+        ]
+      }
+  }
 const subject = new Togglee(url, refresh_rate_seconds, default_values)
 
 

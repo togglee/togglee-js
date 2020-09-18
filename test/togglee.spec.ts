@@ -1,7 +1,6 @@
 import { Togglee } from '../lib/togglee'
 // @ts-ignore
 import simulado from 'simulado'
-import axios from 'axios'
 
 describe('Toggle', () => {
   beforeEach(async () => {
