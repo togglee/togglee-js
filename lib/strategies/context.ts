@@ -1,18 +1,12 @@
-const operationsMaps: any = {
-  eq: (first: any, second: any) => first === second,
-  ne: (first: any, second: any) => first !== second,
-  gt: (first: any, second: any) => first > second,
-  ge: (first: any, second: any) => first >= second,
-  lt: (first: any, second: any) => first < second,
-  le: (first: any, second: any) => first <= second,
-}
+import { ContextToggle } from '../models/ContextToggle'
+import { operations } from '../helpers/operations'
 
-const context = (toggle: any, currentContext: any) => {
+const context = (toggle: ContextToggle, currentContext: any) => {
   for (const condition of toggle.conditions) {
     const value = currentContext[condition.field]
     const expectedValue = condition.value
     const operation = condition.operation
-    if (!operationsMaps[operation](expectedValue, value)) return false
+    if (!operations[operation](expectedValue, value)) return false
   }
   return true
 }

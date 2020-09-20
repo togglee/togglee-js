@@ -1,3 +1,5 @@
-const release = (toggle: any) => toggle.value
+import { ReleaseToggle } from '../models/ReleaseToggle'
+
+const release = (toggle: ReleaseToggle) => toggle.value
 
 export default release

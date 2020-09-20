@@ -8,6 +8,6 @@
     "strict": true,
     "importHelpers": true
   },
-  "files": ["./lib/index.ts"],
+  "files": ["./lib/index.ts", "./lib/models/ContextToggle.ts", "./lib/models/Conditions.ts", "./lib/models/ReleaseToggle.ts", "lib/models/Toggle.ts"],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }

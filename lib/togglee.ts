@@ -1,13 +1,14 @@
 import axios from 'axios'
 import strategyMaps from './strategies'
-import mapJsonToToggles from './helpers/mapper'
+import mapArrayofToggles from './helpers/mapper'
+import { Toggle } from './models/Toggle'
 
 export class Togglee {
   private toggles?: any
   private url: string
 
-  constructor(url: string, refreshRate: number, defaults?: any) {
-    this.toggles = defaults
+  constructor(url: string, refreshRate: number, defaults?: Toggle[]) {
+    this.toggles = defaults? mapArrayofToggles(defaults) : undefined
     setInterval(this.refreshCache, refreshRate * 1000)
     setTimeout(this.refreshCache, 0)
     this.url = url
@@ -28,7 +29,7 @@ export class Togglee {
 
   private refreshCache = async () => {
     try {
-      this.toggles = mapJsonToToggles((await axios.get(this.url)).data.toggles)
+      this.toggles = mapArrayofToggles((await axios.get(this.url)).data.toggles)
     } catch (error) {
       // empty block
     }

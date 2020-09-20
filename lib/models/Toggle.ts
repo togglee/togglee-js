@@ -1,5 +1,4 @@
 export type Toggle = {
   name: string
-}
-
-export default Toggle
+  type: 'release' | 'context'
+};

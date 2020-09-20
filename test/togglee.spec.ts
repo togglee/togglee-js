@@ -1,6 +1,8 @@
 import { Togglee } from '../lib/togglee'
 // @ts-ignore
 import simulado from 'simulado'
+import { Toggle } from '../lib/models/Toggle'
+import { ReleaseToggle } from '../lib/models/ReleaseToggle'
 
 describe('Toggle', () => {
   beforeEach(async () => {
@@ -12,27 +14,25 @@ describe('Toggle', () => {
   })
 
   it('should use default value', async () => {
-    const expectedResult = {
-      propTrue: {
-        type: 'release',
-        value: true,
-      },
-      propFalse: {
-        type: 'release',
-        value: false,
-      },
+    const propTrue: ReleaseToggle = {
+      name: 'propTrue',
+      type: 'release',
+      value: true,
+    }    
+    const propFalse: ReleaseToggle =  {
+      name: 'propFalse',
+      type: 'release',
+      value: false,
     }
+    const defaultToggles: Toggle[] = [
+      propTrue,
+      propFalse,
+    ]
 
-    const subject = new Togglee('http://localhost:7001/somepath', 1000, expectedResult)
+    const subject = new Togglee('http://localhost:7001/somepath', 1000, defaultToggles)
 
     expect(subject.isEnabled('propTrue')).toBeTruthy()
     expect(subject.isEnabled('propFalse')).toBeFalsy()
-  })
-
-  it('should return false as default', async () => {
-    const subject = new Togglee('http://localhost:7001/somepath', 1000, {})
-
-    expect(subject.isEnabled('somerandom')).toBeFalsy()
   })
 
   it('should return false if no defaults', async () => {
