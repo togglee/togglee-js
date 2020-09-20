@@ -9,6 +9,7 @@ export class Togglee {
   constructor(url: string, refreshRate: number, defaults?: any) {
     this.toggles = defaults
     setInterval(this.refreshCache, refreshRate * 1000)
+    setTimeout(this.refreshCache, 0)
     this.url = url
   }
 
