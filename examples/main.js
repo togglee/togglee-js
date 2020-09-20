@@ -1,5 +1,4 @@
-import pkg from 'togglee';
-const {Togglee} = pkg;
+import Togglee from 'togglee';
 
 const url = "https://gist.githubusercontent.com/kanekotic/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
 const refresh_rate_seconds = 5

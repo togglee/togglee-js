@@ -1,6 +1,6 @@
 {
-  "name": "togglee",
-  "version": "0.0.1",
+  "name": "togglee-example",
+  "version": "0.0.0",
   "license": "MIT",
   "keywords": [],
   "type": "module",
@@ -8,7 +8,7 @@
     "start": "node main.js"
   },
   "dependencies": {
-    "togglee": "*"
+    "togglee": "0.0.5"
   },
   "jest": {
     "preset": "ts-jest"
