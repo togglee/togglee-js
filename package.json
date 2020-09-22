@@ -1,14 +1,15 @@
 {
   "name": "togglee",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Simple library to separate deployment of features from release time. It uses network accesible files without the need of a server to provide feature toggles.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "contributors": [
     "Kanekotic <alvarojosepl@gmail.com>"
   ],
-  "repository": "git@github.com:tarantx/togglee.git",
+  "repository": "git@github.com:togglee/togglee.git",
   "license": "MIT",
+  "homepage": "https://www.togglee.com/",
   "keywords": [
     "serverless",
     "flags",
@@ -22,7 +23,7 @@
     "lint": "tslint -p tsconfig.json",
     "test": "npm run format && npm run lint && jest test",
     "test:dev": "jest --watchAll test",
-    "test:cov": "npm run format && npm run lint && jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:cov": "jest --coverage && codecov",
     "push": "npm run test && git push",
     "deploy:major": "npm run version --major",
     "deploy:minor": "npm run version --minor",
@@ -35,7 +36,7 @@
     "@types/jest": "25.2.3",
     "@types/node": "14.0.4",
     "@types/vue": "2.0.0",
-    "coveralls": "3.1.0",
+    "codecov": "3.7.2",
     "faker": "4.1.0",
     "jest": "26.0.1",
     "prettier": "2.0.5",
