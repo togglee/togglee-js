@@ -58,30 +58,31 @@ add it to your project using `npm install togglee --save` or `yarn add togglee`
 
 
 ```js
-    import Togglee from 'togglee';
+    import pkg from 'togglee';
+    const {Togglee} = pkg;
 
     const url = "https://gist.githubusercontent.com/kanekotic/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
     const refresh_rate_seconds = 5
-    const default_values = {
-        prop: {
+    const default_values = [
+        {
         type: 'release',
         value: true,
         },
-        prop2: {
-            "type": "release",
-            "value": true
+        {
+        "type": "release",
+        "value": true
         },
-        prop3: {
-            "type": "context",
-            "conditions": [
+        {
+        "type": "context",
+        "conditions": [
             {
-                "field": "username",
-                "value": "user1",
-                "operation": "eq"
+            "field": "username",
+            "value": "user1",
+            "operation": "eq"
             }
-            ]
+        ]
         }
-    }
+    ]
     const subject = new Togglee(url, refresh_rate_seconds, default_values)
 
 
