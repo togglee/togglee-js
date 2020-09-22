@@ -1,7 +1,7 @@
 {
   "name": "togglee",
   "version": "0.0.9",
-  "description": "",
+  "description": "Simple library to separate deployment of features from release time. It uses network accesible files without the need of a server to provide feature toggles.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "contributors": [
