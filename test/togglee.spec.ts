@@ -18,16 +18,13 @@ describe('Toggle', () => {
       name: 'propTrue',
       type: 'release',
       value: true,
-    }    
-    const propFalse: ReleaseToggle =  {
+    }
+    const propFalse: ReleaseToggle = {
       name: 'propFalse',
       type: 'release',
       value: false,
     }
-    const defaultToggles: Toggle[] = [
-      propTrue,
-      propFalse,
-    ]
+    const defaultToggles: Toggle[] = [propTrue, propFalse]
 
     const subject = new Togglee('http://localhost:7001/somepath', 1000, defaultToggles)
 
@@ -68,5 +65,16 @@ describe('Toggle', () => {
     await sleeper
     expect(subject.isEnabled('propTrue')).toBeTruthy()
     expect(subject.isEnabled('propFalse')).toBeFalsy()
+  })
+
+  it('should call onReady callback after resolving the remote content for first time', (done) => {
+    const subject = new Togglee('http://localhost:7001/somepath', 1000)
+
+    subject
+      .onReady()
+      .then(done)
+      .catch(() => {
+        throw Error('should not be called')
+      })
   })
 })
