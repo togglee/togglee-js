@@ -3,14 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "keywords": [],
-  "type": "module",
   "scripts": {
     "start": "node main.js"
   },
   "dependencies": {
     "togglee": "*"
-  },
-  "jest": {
-    "preset": "ts-jest"
   }
 }

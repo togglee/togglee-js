@@ -1,29 +1,32 @@
-import pkg from 'togglee';
-const {Togglee} = pkg;
+const { Togglee } = require("togglee")
 
 const url = "https://gist.githubusercontent.com/kanekotic/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
-const refresh_rate_seconds = 5
-const default_values = [
+const refreshRateSeconds = 5
+const defaultValues = [
     {
-      type: 'release',
+      type: "release",
+      name: "prop",
       value: true,
     },
     {
-      "type": "release",
-      "value": true
+      type: "release",
+      name: "prop2",
+      value: true
     },
     {
-      "type": "context",
-      "conditions": [
+      type: "context",
+      name: "prop3",
+      conditions: [
         {
-          "field": "username",
-          "value": "user1",
-          "operation": "eq"
+          field: "username",
+          value: "user1",
+          operation: "eq"
         }
       ]
     }
 ]
-const subject = new Togglee(url, refresh_rate_seconds, default_values)
+
+const subject = new Togglee(url, refreshRateSeconds, defaultValues)
 
 
 setInterval(() => {

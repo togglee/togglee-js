@@ -1,6 +1,6 @@
 {
   "name": "togglee",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Simple library to separate deployment of features from release time. It uses network accesible files without the need of a server to provide feature toggles.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -49,7 +49,7 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "simulado": "^3.5.2",
     "ts-jest": "26.0.0",
-    "tslib": "2.0.0",
+    "tslib": "^2.0.0",
     "tslint": "6.1.2",
     "tslint-config-prettier": "1.18.0",
     "typescript": "3.9.3"
