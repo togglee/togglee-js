@@ -5,6 +5,7 @@ import { Toggle } from '../lib/models/Toggle'
 import { ReleaseToggle } from '../lib/models/ReleaseToggle'
 
 describe('Toggle', () => {
+  const sleeper = (time: number) => new Promise((resolve) => setTimeout(resolve, time))
   beforeEach(async () => {
     await simulado.start()
   })
@@ -39,7 +40,6 @@ describe('Toggle', () => {
   })
 
   it('should refresh cache in rate', async () => {
-    const sleeper = new Promise((resolve) => setTimeout(resolve, 1000))
     const expectedResult = {
       toggles: [
         {
@@ -62,19 +62,32 @@ describe('Toggle', () => {
 
     const subject = new Togglee('http://localhost:7001/somepath', 0.1)
 
-    await sleeper
+    await sleeper(1000)
     expect(subject.isEnabled('propTrue')).toBeTruthy()
     expect(subject.isEnabled('propFalse')).toBeFalsy()
   })
 
-  it('should call onReady callback after resolving the remote content for first time', (done) => {
+  it('should call onReady callback after resolving the remote content for first time', async () => {
+    const expectedResult = {
+      toggles: [
+        {
+          name: 'propTrue',
+          type: 'release',
+          value: true,
+        },
+        {
+          name: 'propFalse',
+          type: 'release',
+          value: false,
+        },
+      ],
+    }
+    await simulado.setMock({
+      path: '/somepath',
+      body: expectedResult,
+    })
     const subject = new Togglee('http://localhost:7001/somepath', 1000)
 
-    subject
-      .onReady()
-      .then(done)
-      .catch(() => {
-        throw Error('should not be called')
-      })
+    await subject.onReady()
   })
 })
