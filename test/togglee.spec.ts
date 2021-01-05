@@ -90,4 +90,14 @@ describe('Toggle', () => {
 
     await subject.onReady()
   })
+
+  it('should call onReady callback after resolving the remote content and received an error', async () => {
+    await simulado.setMock({
+      path: '/somepath',
+      status: 500,
+    })
+    const subject = new Togglee('http://localhost:7001/somepath', 1000)
+
+    await subject.onReady()
+  })
 })
