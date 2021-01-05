@@ -1,11 +1,12 @@
 {
   "name": "togglee",
-  "version": "0.0.17",
-  "description": "Simple library to separate deployment of features from release time. It uses network accesible files without the need of a server to provide feature toggles.",
+  "version": "0.0.18",
+  "description": "Simple library to separate deployment of features from release time. It uses network accessible files without the need of a server to provide feature toggles.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "contributors": [
-    "Kanekotic <alvarojosepl@gmail.com>"
+    "Kanekotic <alvarojosepl@gmail.com>",
+    "Aleix Morgadas <aleix.morgadas@pm.me>"
   ],
   "repository": "git@github.com:togglee/togglee.git",
   "license": "APACHE-2.0",
