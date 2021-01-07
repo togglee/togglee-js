@@ -7,14 +7,14 @@ export class Togglee {
   private toggles?: any
   private url: string
   private ready = false
-  private debug: boolean;
+  private debug: boolean
 
   constructor(url: string, refreshRate: number, defaults?: Toggle[], debug: boolean = false) {
     this.toggles = defaults ? mapArrayofToggles(defaults) : undefined
     setInterval(this.refreshCache, refreshRate * 1000)
     setTimeout(this.refreshCache, 0)
     this.url = url
-    this.debug = debug;
+    this.debug = debug
   }
 
   public isEnabled(prop: string, context?: any) {
@@ -46,7 +46,8 @@ export class Togglee {
       this.ready = true
     } catch (error) {
       if (this.debug) {
-        console.error('togglee error', error);
+        // tslint:disable-next-line
+        console.error('togglee error', error)
       }
       this.ready = true
     }
