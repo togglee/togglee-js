@@ -23,8 +23,7 @@ jobs:
           key: ${{ runner.os }}-cache-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-cache-
-      - run: yarn install
-      - run: yarn ci
+      - run: yarn install --frozen-lockfile
       - run: yarn test
       - uses: mikeal/merge-release@master
         if: github.event_name != 'pull_request'
