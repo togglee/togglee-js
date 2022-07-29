@@ -22,7 +22,7 @@
     "build:cdn": "npm run build && rollup -c",
     "format": "prettier --write \"**/*.ts\" && tslint -p tsconfig.json --fix lib/**/*.ts -t verbose",
     "lint": "tslint -p tsconfig.json",
-    "test": "npm run format && npm run lint && jest test",
+    "test": "npm run format && npm run lint && jest test --forceExit",
     "test:dev": "jest --watchAll test",
     "test:cov": "jest --coverage && codecov",
     "push": "npm run test && git push",
