@@ -4,11 +4,12 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 import typescript from 'rollup-plugin-typescript2'
 import json from "rollup-plugin-json"
 import builtins from "rollup-plugin-node-builtins"
+import * as package from "./package.json"
 
 export default {
     output: {
         format: "umd",
-        file: "cdn/togglee-" + require("./package.json").version + ".min.js",
+        file: "cdn/togglee-" + package.version + ".min.js",
         name: "togglee"
     },
     input: "lib/index.ts",
