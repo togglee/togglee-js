@@ -41,7 +41,7 @@
     "codecov": "3.8.3",
     "jest": "29.5.0",
     "prettier": "2.8.7",
-    "rollup": "3.20.2",
+    "rollup": "3.20.3",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-builtins": "^2.1.2",
