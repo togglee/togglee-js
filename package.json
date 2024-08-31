@@ -27,7 +27,7 @@
     "require": "./dist/togglee.umd.cjs"
   },
   "scripts": {
-    "prepare": "npm run build && npm run build:cdn",
+    "prepare": "npm run build",
     "build": "tsc && vite build",
     "format": "prettier --write \"**/*.ts\"",
     "lint": "eslint . --max-warnings 0",
