@@ -5,7 +5,7 @@ name: Build & Publish
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -18,12 +18,12 @@ jobs:
         id: cache
         with:
           path: node_modules
-          key: ${{ runner.os }}-cache-${{ hashFiles('yarn.lock') }}
+          key: ${{ runner.os }}-cache-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-cache-
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - uses: kanekotic/merge-release@master
+      - run: npm ci
+      - run: npm test
+      - uses: alvarolorentedev/merge-release@master
         if: github.event_name != 'pull_request'
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

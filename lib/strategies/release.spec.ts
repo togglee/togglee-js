@@ -1,5 +1,7 @@
-import { ReleaseToggle } from '../../lib/models/ReleaseToggle'
-import release from '../../lib/strategies/release'
+import { describe, it, expect } from 'vitest'
+
+import { ReleaseToggle } from '../models/ReleaseToggle'
+import release from './release'
 
 describe('Release strategy', () => {
   it('should return true of value true', async () => {

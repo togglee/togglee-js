@@ -35,7 +35,8 @@ export class Togglee {
     try {
       const toggle = this.toggles[prop]
       return strategyMaps[toggle.type](toggle, context)
-    } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_) {
       return false
     }
   }
@@ -46,7 +47,6 @@ export class Togglee {
       this.ready = true
     } catch (error) {
       if (this.debug) {
-        // tslint:disable-next-line
         console.error('togglee error', error)
       }
       this.ready = true

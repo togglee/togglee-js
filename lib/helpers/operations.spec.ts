@@ -1,7 +1,6 @@
-import mapArrayofToggles from '../../lib/helpers/mapper'
-import { ReleaseToggle } from '../../lib/models/ReleaseToggle'
-import { Toggle } from '../../lib/models/Toggle'
-import { operations } from '../../lib/helpers/operations'
+import { describe, it, expect } from 'vitest'
+import { operations } from './operations'
+
 describe('operations', () => {
   it('eq should return true if first equal second operation', () => {
     expect(operations['eq'](1, 1)).toBeTruthy()

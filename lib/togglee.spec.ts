@@ -1,16 +1,16 @@
-import { Togglee } from '../lib/togglee'
-// @ts-ignore
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
+import { Togglee } from './togglee'
 import simulado from 'simulado'
-import { Toggle } from '../lib/models/Toggle'
-import { ReleaseToggle } from '../lib/models/ReleaseToggle'
+import { Toggle } from './models/Toggle'
+import { ReleaseToggle } from './models/ReleaseToggle'
 
 describe('Toggle', () => {
   const sleeper = (time: number) => new Promise((resolve) => setTimeout(resolve, time))
-  beforeEach(async () => {
+  beforeAll(async () => {
     await simulado.start()
   })
 
-  afterEach(async () => {
+  afterAll(async () => {
     await simulado.stop()
   })
 

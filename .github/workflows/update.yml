@@ -17,9 +17,9 @@ jobs:
       - name: install upgrade
         run: yarn upgrade --latest
       - name: install dependencies
-        run: yarn
+        run: npm ci
       - name: run tests
-        run: yarn test
+        run: npm test
       - uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions

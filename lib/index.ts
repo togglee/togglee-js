@@ -1,8 +1,10 @@
 import { Togglee as tg } from './togglee'
-export { ReleaseToggle } from './models/ReleaseToggle'
-export { ContextToggle } from './models/ContextToggle'
-export { Conditions } from './models/Conditions'
+import { ReleaseToggle as rt } from './models/ReleaseToggle'
+import { ContextToggle as ct } from './models/ContextToggle'
+import { Conditions as c } from './models/Conditions'
+
+export type ReleaseToggle = rt
+export type ContextToggle = ct
+export type Conditions = c
 
 export const Togglee = tg
-
-export default Togglee

@@ -1,14 +1,16 @@
-jest.mock('../../lib/helpers/operations', () => ({
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+
+vi.mock('../helpers/operations', () => ({
   __esModule: true,
   operations: {
-    op1: jest.fn(),
-    op2: jest.fn(),
+    op1: vi.fn(),
+    op2: vi.fn(),
   },
 }))
 
-import { operations } from '../../lib/helpers/operations'
-import { ContextToggle } from '../../lib/models/ContextToggle'
-import context from '../../lib/strategies/context'
+import { operations } from '../helpers/operations'
+import { ContextToggle } from '../models/ContextToggle'
+import context from './context'
 
 describe('Release strategy', () => {
   const condition1 = {

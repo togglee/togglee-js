@@ -1,6 +1,7 @@
-import mapArrayofToggles from '../../lib/helpers/mapper'
-import { ReleaseToggle } from '../../lib/models/ReleaseToggle'
-import { Toggle } from '../../lib/models/Toggle'
+import { describe, it, expect } from 'vitest'
+import mapArrayofToggles from './mapper'
+import { ReleaseToggle } from '../models/ReleaseToggle'
+import { Toggle } from '../models/Toggle'
 
 describe('mapper', () => {
   it('should map', () => {

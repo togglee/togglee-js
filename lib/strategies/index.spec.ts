@@ -1,17 +1,21 @@
-const mockRelease = jest.fn()
-const mockContext = jest.fn()
-jest.mock('../../lib/strategies/release', () => ({
+import { describe, it, expect, vi } from 'vitest'
+import index from '.'
+
+const { mockRelease, mockContext } = vi.hoisted(() => {
+  return {
+    mockRelease: vi.fn(),
+    mockContext: vi.fn(),
+  }
+})
+vi.mock('./release', () => ({
   __esModule: true,
   default: mockRelease,
 }))
-jest.mock('../../lib/strategies/context', () => ({
+vi.mock('./context', () => ({
   __esModule: true,
   default: mockContext,
 }))
 
-import release from '../../lib/strategies/release'
-import context from '../../lib/strategies/context'
-import index from '../../lib/strategies'
 describe('index', () => {
   it('should have release strategy', () => {
     expect(index.release).toEqual(mockRelease)

@@ -1,11 +1,10 @@
 {
   "name": "togglee",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple library to separate deployment of features from release time. It uses network accessible files without the need of a server to provide feature toggles.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
   "contributors": [
-    "Kanekotic <alvarojosepl@gmail.com>",
+    "Alvaro <contact@alvarolorente.dev>",
     "Aleix Morgadas <aleix.morgadas@pm.me>"
   ],
   "repository": "git@github.com:togglee/togglee-js.git",
@@ -16,49 +15,45 @@
     "flags",
     "toggles"
   ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/togglee.umd.cjs",
+  "module": "./dist/togglee.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/togglee.js",
+    "require": "./dist/togglee.umd.cjs"
+  },
   "scripts": {
     "prepare": "npm run build && npm run build:cdn",
-    "build": "tsc",
-    "build:cdn": "npm run build && rollup -c",
-    "format": "prettier --write \"**/*.ts\" && tslint -p tsconfig.json --fix lib/**/*.ts -t verbose",
-    "lint": "tslint -p tsconfig.json",
-    "test": "npm run format && npm run lint && jest test --forceExit",
-    "test:dev": "jest --watchAll test",
-    "test:cov": "jest --coverage && codecov",
+    "build": "tsc && vite build",
+    "format": "prettier --write \"**/*.ts\"",
+    "lint": "eslint . --max-warnings 0",
+    "test": "npm run format && npm run lint && vitest",
+    "test:dev": "vitest --watchAll",
+    "test:cov": "vitest --coverage && codecov",
     "push": "npm run test && git push",
     "deploy:major": "npm run version --major",
     "deploy:minor": "npm run version --minor",
     "deploy:patch": "npm run version --patch",
     "deploy:push": "git push && git push --tags",
-    "preversion": "npm run test"
+    "preversion": "npm run test",
+    "dev": "vite"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.1.0",
-    "@types/faker": "6.6.9",
-    "@types/jest": "29.5.5",
-    "@types/node": "20.6.5",
-    "@types/vue": "2.0.0",
-    "codecov": "3.8.3",
-    "jest": "29.7.0",
-    "prettier": "3.0.3",
-    "rollup": "3.29.3",
-    "rollup-plugin-commonjs": "10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-builtins": "^2.1.2",
-    "rollup-plugin-node-resolve": "5.2.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.35.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
     "simulado": "^3.5.2",
-    "ts-jest": "29.1.1",
-    "tslint": "6.1.3",
-    "tslint-config-prettier": "1.18.0",
-    "typescript": "5.2.2"
+    "typescript": "^5.4.5",
+    "vite": "^5.2.10",
+    "vite-plugin-dts": "^4.0.3",
+    "vitest": "^2.0.5"
   },
   "dependencies": {
-    "axios": "^1.5.0",
-    "tslib": "^2.6.2"
-  },
-  "jest": {
-    "preset": "ts-jest"
+    "axios": "^1.7.6"
   }
 }
