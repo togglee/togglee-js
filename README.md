@@ -1,4 +1,4 @@
-# ![LogoMakr_4ojFPZ](https://user-images.githubusercontent.com/3071208/90978825-2b93de00-e540-11ea-8e0d-60267e95fec8.png)
+# ![toggle_logo_text](https://github.com/user-attachments/assets/17e12440-f254-45d9-8e4e-090e52533f1a)
 
 ![Build & Publish](https://github.com/togglee/togglee-js/workflows/Build%20&%20Publish/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/togglee/togglee-js/branch/master/graph/badge.svg)](https://codecov.io/gh/togglee/togglee-js)
@@ -18,9 +18,10 @@ add it to your project using `npm install togglee --save` or `yarn add togglee`
 ## Usage
 
 ```js
-const { Togglee } = require("togglee")
+import { Togglee } from '../lib'
+// or: const { Togglee } = require("togglee")
 
-const url = "https://gist.githubusercontent.com/kanekotic/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
+const url = "https://gist.githubusercontent.com/alvarolorentedev/c469f99bef5a5c0634b4a94a4acd6546/raw/toggles"
 const refreshRateSeconds = 5
 const defaultValues = [
     {
